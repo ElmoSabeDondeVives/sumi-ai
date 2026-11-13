@@ -1,1 +1,1 @@
-# sumi-ai
+# SUMI AI
