@@ -6,6 +6,6 @@ Ubicación:
 - textures/: texturas externas si fueran necesarias.
 - thumbnails/: vistas previas.
 
-El GLB base incluye: malla multi-material (~17.8k tris), texturas PBR 1K (albedo, roughness, normal), rig (tronco, cuello, cabeza, orejas, hombros, brazos y cola), 20 shape keys (parpadeo, cejas y 15 visemas Oculus) y clips en loop `idle`, `curious` y `thinking`.
+El GLB base incluye: malla multi-material (~21.3k tris), texturas PBR 1K (albedo, roughness, normal), rig (tronco, cuello, cabeza, orejas, hombros, brazos y cola), 20 shape keys (parpadeo, cejas y 15 visemas Oculus) y los 8 clips en loop: `idle`, `curious`, `thinking`, `greeting`, `success`, `warning`, `sleeping` y `happy`.
 
 Para regenerarlo: `blender -b -P tools/blender/build_sumi.py`. El modelo esculpido a mano en Blender podrá reemplazar este base conservando los nombres de clips y shape keys. No colocar aquí una imagen 2D renombrada como si fuera un modelo 3D.

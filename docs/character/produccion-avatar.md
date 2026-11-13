@@ -84,14 +84,18 @@ Los nombres son **estables** y en ese formato exacto para futura sincronización
 
 Clips en bucle, suaves, nombrados igual que los estados del motor ([states.md](../animation/states.md)) para que `SumiStateMachine` los dispare sin mapeos:
 
-| Clip | Estado del brief | Contenido |
-|---|---|---|
-| `idle` | Reposo/respiración | Respiración sutil (escala/posición de pecho), balanceo leve de cola y orejas |
-| `curious` | Escucha activa | Asentir con la cabeza, orejas hacia adelante |
-| `thinking` | Procesamiento | Cabeza ladeada, mirada arriba, cola lenta |
+| Clip | Contenido |
+|---|---|
+| `idle` | Respiración sutil, balanceo de cola y orejas (3 s) |
+| `curious` | Escucha activa: asentir con orejas al frente (2.5 s) |
+| `thinking` | Cabeza ladeada mirando arriba, cola lenta (4 s) |
+| `greeting` | Saludo con el brazo izquierdo en alto y balanceo (2.5 s) |
+| `success` | Celebración: rebote y cola enérgica (2 s) |
+| `warning` | Alerta: negación con la cabeza, orejas atrás (2.5 s) |
+| `sleeping` | Cabeza caída, respiración profunda y lenta (4 s) |
+| `happy` | Alegría: rebote ligero y cola rápida (2.5 s) |
 
-- 24–30 fps, duración 2–4 s por ciclo, primer y último frame idénticos (loop perfecto).
-- Los demás estados (`greeting`, `success`, `warning`, `sleeping`, `happy`) se producirán en una fase posterior.
+- 24 fps, duración 2–4 s por ciclo, primer y último frame idénticos (loop perfecto).
 
 ## 6. Exportación y optimización
 

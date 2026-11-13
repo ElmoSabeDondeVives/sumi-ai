@@ -545,6 +545,77 @@ def build_animations(arm_obj):
         think_keys.append(('spine', f, {'rot': (0, 0, r)}))
     actions.append(make_action(arm_obj, 'thinking', 96, think_keys))
 
+    # greeting: saludo con el brazo izquierdo en alto y balanceo (2.5 s loop)
+    greet_keys = []
+    for f, r in ((1, 0), (8, -70), (52, -70), (60, 0)):
+        greet_keys.append(('shoulder.L', f, {'rot': (0, 0, r)}))
+    for f, r in ((1, 0), (8, -25), (16, 25), (26, -25), (36, 25), (46, -25), (52, 0), (60, 0)):
+        greet_keys.append(('arm.L', f, {'rot': (0, r, 0)}))
+    for f, r in ((1, 0), (14, -10), (44, -8), (60, 0)):
+        greet_keys.append(('head', f, {'rot': (0, 0, r)}))
+    for f, r in ((1, 0), (10, -14), (50, -14), (60, 0)):
+        greet_keys.append(('ear.L', f, {'rot': (r, 0, 0)}))
+        greet_keys.append(('ear.R', f, {'rot': (r, 0, 0)}))
+    for f, r in ((1, -14), (30, 14), (60, -14)):
+        greet_keys.append(('tail.02', f, {'rot': (0, 0, r)}))
+    actions.append(make_action(arm_obj, 'greeting', 60, greet_keys))
+
+    # success: celebración con rebote y cola enérgica (2 s loop)
+    success_keys = []
+    for f, h in ((1, 0), (12, 0.07), (24, 0), (36, 0.05), (48, 0)):
+        success_keys.append(('root', f, {'loc': (0, h, 0)}))
+    for f, r in ((1, 0), (12, -10), (24, 0), (36, -7), (48, 0)):
+        success_keys.append(('head', f, {'rot': (r, 0, 0)}))
+    for f, r in ((1, -24), (12, 24), (24, -24), (36, 24), (48, -24)):
+        success_keys.append(('tail.02', f, {'rot': (0, 0, r)}))
+        success_keys.append(('tail.03', f, {'rot': (0, 0, r * 1.2)}))
+    for f, r in ((1, 0), (12, -12), (36, -12), (48, 0)):
+        success_keys.append(('ear.L', f, {'rot': (r, 0, 0)}))
+        success_keys.append(('ear.R', f, {'rot': (r, 0, 0)}))
+    actions.append(make_action(arm_obj, 'success', 48, success_keys))
+
+    # warning: alerta, negación con la cabeza y orejas atrás (2.5 s loop)
+    warn_keys = []
+    for f, r in ((1, 0), (10, 14), (25, -14), (40, 10), (50, -8), (60, 0)):
+        warn_keys.append(('head', f, {'rot': (0, r, 0)}))
+    for f, r in ((1, 0), (10, 18), (50, 18), (60, 0)):
+        warn_keys.append(('ear.L', f, {'rot': (r, 0, 0)}))
+        warn_keys.append(('ear.R', f, {'rot': (r, 0, 0)}))
+    for f, r in ((1, 0), (10, -6), (50, -6), (60, 0)):
+        warn_keys.append(('spine', f, {'rot': (r, 0, 0)}))
+    for f, r in ((1, -6), (30, 6), (60, -6)):
+        warn_keys.append(('tail.02', f, {'rot': (0, 0, r)}))
+    actions.append(make_action(arm_obj, 'warning', 60, warn_keys))
+
+    # sleeping: cabeza caída, respiración profunda y lenta (4 s loop)
+    sleep_keys = []
+    for f, r in ((1, 16), (48, 21), (96, 16)):
+        sleep_keys.append(('head', f, {'rot': (r, 0, 0)}))
+    for f, s in ((1, 1.0), (48, 1.07), (96, 1.0)):
+        sleep_keys.append(('chest', f, {'scale': (s, s, s)}))
+    for f, r in ((1, 10), (48, 13), (96, 10)):
+        sleep_keys.append(('ear.L', f, {'rot': (r, 0, -14)}))
+        sleep_keys.append(('ear.R', f, {'rot': (r, 0, 14)}))
+    for f, r in ((1, -4), (48, 4), (96, -4)):
+        sleep_keys.append(('tail.02', f, {'rot': (0, 0, r)}))
+    for f, r in ((1, 4), (48, 7), (96, 4)):
+        sleep_keys.append(('spine', f, {'rot': (r, 0, 0)}))
+    actions.append(make_action(arm_obj, 'sleeping', 96, sleep_keys))
+
+    # happy: alegría con rebote ligero y cola rápida (2.5 s loop)
+    happy_keys = []
+    for f, h in ((1, 0), (15, 0.05), (30, 0), (45, 0.05), (60, 0)):
+        happy_keys.append(('root', f, {'loc': (0, h, 0)}))
+    for f, r in ((1, -7), (30, 7), (60, -7)):
+        happy_keys.append(('head', f, {'rot': (0, 0, r)}))
+    for f, r in ((1, -26), (15, 26), (30, -26), (45, 26), (60, -26)):
+        happy_keys.append(('tail.02', f, {'rot': (0, 0, r)}))
+        happy_keys.append(('tail.03', f, {'rot': (0, 0, r * 1.2)}))
+    for f, r in ((1, -10), (30, -15), (60, -10)):
+        happy_keys.append(('ear.L', f, {'rot': (r, 0, 0)}))
+        happy_keys.append(('ear.R', f, {'rot': (r, 0, 0)}))
+    actions.append(make_action(arm_obj, 'happy', 60, happy_keys))
+
     # apila cada acción en su propia pista NLA (el exportador usa el nombre de pista)
     arm_obj.animation_data.action = None
     for action, _length in actions:
@@ -600,7 +671,7 @@ def main():
     tri_count = sum(len(p.vertices) - 2 for p in sumi.data.polygons)
     print(f'[SUMI] triangulos: {tri_count}')
     print(f'[SUMI] shape keys: {len(sumi.data.shape_keys.key_blocks) - 1}')
-    print('[SUMI] clips: idle, curious, thinking')
+    print('[SUMI] clips: idle, curious, thinking, greeting, success, warning, sleeping, happy')
 
     export_glb(EXPORT_PATH)
     print(f'[SUMI] exportado: {EXPORT_PATH}')

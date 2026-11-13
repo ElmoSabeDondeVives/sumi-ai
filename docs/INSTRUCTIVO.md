@@ -12,7 +12,7 @@ SUMI es un agente de IA con presencia visual 3D (criatura híbrida zorro/gato co
 - Máquina de estados de animación.
 - Widget embebible.
 - Documentación de arquitectura, personaje, animación e integración.
-- **Avatar 3D base v0.1** en `public/models/sumi/base/sumi.glb`, generado con el pipeline Blender de [tools/blender/build_sumi.py](../tools/blender/build_sumi.py): ~17.8k triángulos, texturas PBR 1K, rig, 20 blendshapes (parpadeo, cejas y 15 visemas) y clips `idle`, `curious` y `thinking`. Si el archivo falta, el motor dibuja un placeholder geométrico.
+- **Avatar 3D base v0.1** en `public/models/sumi/base/sumi.glb`, generado con el pipeline Blender de [tools/blender/build_sumi.py](../tools/blender/build_sumi.py): ~21.3k triángulos, texturas PBR 1K, rig, 20 blendshapes (parpadeo, cejas y 15 visemas) y los 8 clips de estado (`idle`, `curious`, `thinking`, `greeting`, `success`, `warning`, `sleeping`, `happy`). Si el archivo falta, el motor dibuja un placeholder geométrico.
 
 ## 2. Requisitos
 
