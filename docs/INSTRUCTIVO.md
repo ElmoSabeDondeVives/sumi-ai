@@ -164,7 +164,14 @@ Ver [architecture/overview.md](./architecture/overview.md) e [integration/alpha-
 | `Error: No se encontró el contenedor de SUMI` | El selector no coincide con ningún elemento | Verificar que el contenedor exista antes de instanciar el motor |
 | Canvas no se adapta al redimensionar | Contenedor sin dimensiones | Dar `width`/`height` al contenedor; el motor usa `ResizeObserver` |
 
-## 10. Próximos hitos
+## 10. Conexión Blender ↔ Copilot (MCP)
+
+El proyecto incluye [.vscode/mcp.json](../.vscode/mcp.json) para controlar Blender en vivo desde Copilot vía [MCP for Blender](https://github.com/ahujasid/mcp-for-blender). Requisitos (una sola vez): `winget install astral-sh.uv` e instalar/habilitar el addon `addon.py` del repo oficial en Blender. Para conectar:
+
+1. Abrir Blender → panel lateral (`N`) → pestaña **BlenderMCP** → **Connect to MCP server**.
+2. En VS Code: abrir `mcp.json` → **Start** sobre el servidor `blender`.
+
+## 11. Próximos hitos
 
 1. Crear el esqueleto Laravel local.
 2. Integrar el modelo oficial `sumi.glb` con rig y clips.
