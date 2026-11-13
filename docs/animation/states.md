@@ -2,7 +2,7 @@
 
 Estados previstos: idle, greeting, thinking, success, warning, sleeping, curious y happy.
 
-Cada clip se entregará en el modelo GLB oficial y se registrará en Three.js AnimationMixer. Los nombres de clips deben ser estables y documentados. La máquina de estados actual valida transiciones de estado; las animaciones reales se conectarán cuando exista el rig.
+El GLB base v0.1 ya incluye los clips `idle`, `curious` y `thinking` registrados en Three.js AnimationMixer, además de 20 shape keys (parpadeo, cejas y 15 visemas Oculus Lipsync) para expresiones y futura sincronización labial. Los clips restantes se producirán sobre el mismo rig. Los nombres de clips deben ser estables y documentados.
 
 ## Requisitos
 - Transiciones suaves con cross-fade.

@@ -2,8 +2,10 @@
 
 Proyecto independiente de la mascota virtual 3D SUMI para Alpha ERP.
 
+> 📘 Guía completa de instalación y uso: [docs/INSTRUCTIVO.md](docs/INSTRUCTIVO.md)
+
 ## Estado del proyecto
-Fundación visual MVP v0.1. Este repositorio contiene la arquitectura inicial y el motor Three.js preparado para conectarse a un modelo GLB. **El modelo oficial aún no está incluido**: debe modelarse, riggearse y exportarse desde Blender. La figura geométrica incluida es únicamente un placeholder técnico.
+MVP v0.1 con avatar 3D base integrado. El motor Three.js carga `public/models/sumi/base/sumi.glb`, generado proceduralmente con Blender (`tools/blender/build_sumi.py`): malla multi-material, texturas PBR 1K, rig, 20 blendshapes (parpadeo, cejas y 15 visemas) y clips `idle`, `curious` y `thinking`. El modelo esculpido a mano podrá reemplazar este base conservando nombres de clips y shape keys. Dirección de arte y especificación: `docs/character/produccion-avatar.md`.
 
 ## Stack objetivo
 - Laravel (backend; fijar versión compatible con PHP 8.4 al crear el proyecto local)
@@ -41,8 +43,7 @@ Configura MySQL en `.env` y ejecuta `php artisan migrate` cuando existan migraci
 
 ## Próximos hitos
 1. Crear el esqueleto Laravel local.
-2. Montar escena Three.js y verificar renderizado.
-3. Integrar el modelo oficial SUMI.glb.
-4. Incorporar rig, clips y máquina de estados.
-5. Construir widget flotante y chat.
-6. Preparar API para el núcleo de IA y Alpha ERP.
+2. Esculpir el modelo artístico final en Blender (reemplazo del base procedural, mismos nombres de clips y shape keys).
+3. Producir los clips restantes: greeting, success, warning, sleeping y happy.
+4. Construir widget flotante y chat.
+5. Preparar API para el núcleo de IA y Alpha ERP.

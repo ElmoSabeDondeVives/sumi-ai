@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMI AI - Preview</title>
+    <style>
+        body {
+            margin: 0;
+            background: #11101b;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 { margin-top: 25px; }
+        #sumi-container {
+            width: 100%;
+            height: 75vh;
+        }
+    </style>
+</head>
+<body>
+    <h1>SUMI AI</h1>
+    <p>Tu compañero inteligente</p>
+    <div id="sumi-container"></div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "./node_modules/three/build/three.module.js",
+            "three/addons/": "./node_modules/three/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module">
+        import { SumiEngine } from './resources/js/sumi/core/SumiEngine.js';
+
+        const sumi = new SumiEngine({
+            container: '#sumi-container',
+            model: './public/models/sumi/base/sumi.glb',
+            onStatus: (event) => console.log(event)
+        });
+
+        sumi.load();
+        window.sumi = sumi;
+    </script>
+</body>
+</html>
